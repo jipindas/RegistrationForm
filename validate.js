@@ -23,7 +23,7 @@ let hasTechnologyValidationError
                 validateDateOfBirth()
                 validateMobileNumber()
                 validateTechnology()
-
+                console.log(hasAgeValidationError,hasPasswordValidationError,hasPasswordMatchValidationError,hasPhoneNumberValidationError,hasTechnologyValidationError);
                 if (!form.checkValidity()) {
                     event.preventDefault()
                     event.stopPropagation()
@@ -32,9 +32,10 @@ let hasTechnologyValidationError
                     var firstName = document.getElementById('first_name').value;
                     alert("Hi Mr/Miss " + firstName + " Your application is submitted!")
                 } else {
-                  form.classList.add('was-validated')  
-                }
-                
+                     event.preventDefault()
+                    event.stopPropagation()
+                } 
+                form.classList.add('was-validated')       
             }, false)
 
         })
@@ -46,8 +47,8 @@ function validatePassword() {
     const regexExp =
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*[\^$*.[\]{}()?\-"!@#%&/,><':;|_~`])\S{8,16}$/
     if (regexExp.test(password)) {
-        message.textContent = ''
         hasPasswordValidationError = false
+        message.textContent = ''
     } else {
         hasPasswordValidationError = true
         message.textContent =
