@@ -23,7 +23,6 @@ let hasTechnologyValidationError
                 validateDateOfBirth()
                 validateMobileNumber()
                 validateTechnology()
-                console.log(hasAgeValidationError,hasPasswordValidationError,hasPasswordMatchValidationError,hasPhoneNumberValidationError,hasTechnologyValidationError);
                 if (!form.checkValidity()) {
                     event.preventDefault()
                     event.stopPropagation()
@@ -32,10 +31,10 @@ let hasTechnologyValidationError
                     var firstName = document.getElementById('first_name').value;
                     alert("Hi Mr/Miss " + firstName + " Your application is submitted!")
                 } else {
-                     event.preventDefault()
+                    event.preventDefault()
                     event.stopPropagation()
-                } 
-                form.classList.add('was-validated')       
+                }
+                form.classList.add('was-validated')
             }, false)
 
         })
@@ -102,14 +101,14 @@ function validateMobileNumber() {
 function validateTechnology() {
     let technologyCheckboxes = document.getElementsByName('technology');
     let message = document.getElementById('technology_validate_message')
-    var okay = false;
+    var atleastOneChecked = false;
     for (var i = 0, l = technologyCheckboxes.length; i < l; i++) {
         if (technologyCheckboxes[i].checked) {
-            okay = true;
+            atleastOneChecked = true;
             break;
         }
     }
-    if (okay) {
+    if (atleastOneChecked) {
         hasTechnologyValidationError = false
         message.textContent = ''
     } else {

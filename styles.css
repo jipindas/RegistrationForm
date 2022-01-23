@@ -1,4 +1,3 @@
-
 .gradient-custom {
     /* fallback for old browsers */
     background: #f093fb;
@@ -11,7 +10,7 @@
 }
 
 
-.error-message{
-    color:#DC143C;
+.error-message {
+    color: #DC143C;
     font-size: small;
 }
